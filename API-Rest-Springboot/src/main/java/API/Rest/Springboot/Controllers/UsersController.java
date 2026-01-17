@@ -47,4 +47,15 @@ public class UsersController {
         return null;
     }
 
+    @DeleteMapping("/users/{id}")
+    public List<User> deleteUser(@PathVariable int id){
+        for (User user : users){
+            if (user.getId() == id){
+                users.remove(user);
+                return users;
+            }
+        }
+        return null;
+    }
+
 }
